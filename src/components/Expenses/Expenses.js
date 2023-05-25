@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ExpensesList from "./ExpensesList";
 import ExpensesFilter from "./ExpenseFilter";
+import ExpensesChart from "./ExpensesChart";
 import "./Expenses.css"
 
 
@@ -13,9 +14,7 @@ function Expenses(props) {
     }
 
     const filteredArray = props.items.filter((data) => {         /*Array being filtered on the basis of the entered year */
-        if (data.date.getFullYear() == filteredYear) {
-            return data;
-        }
+        return data.date.getFullYear().toString() === filteredYear;
     });
 
     
@@ -41,7 +40,7 @@ function Expenses(props) {
                         })}
                     </div>
                 )} */}
-
+                <ExpensesChart expenses = {filteredArray} /> 
                 <ExpensesList items={filteredArray} />
 
                 {/* <ExpenseItem title={props.items[0].title} amount={props.items[0].amount} date={props.items[0].date} />

@@ -55,7 +55,7 @@ const ExpenseForm = (props) => {
 
         const expenseData = {
             title: enteredTitle,
-            amount: enteredAmount,
+            amount: +enteredAmount,
             date: new Date(enteredDate)
         };
 
@@ -66,6 +66,8 @@ const ExpenseForm = (props) => {
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');
+
+        alert("New Expense Has Benn Added Successfully !!!");
     }
 
 
@@ -86,7 +88,8 @@ const ExpenseForm = (props) => {
                 </div>
             </div>
             <div className="new-expense__actions">
-                <button type="submit" >Add Expense</button>
+                <button type="button" onClick={props.cancelBtn} >Cancel</button>
+                <button type="submit"  >Add Expense</button>
             </div>
         </form>
     )
